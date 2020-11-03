@@ -5,10 +5,3 @@ services:
   _defaults:
     autoconfigure: true
     autowire: true
-
-  Medine\Tests\:
-    resource: '../../../../tests/src'
-
-  # Instance selector
-  Medine\Shared\Domain\RandomNumberGenerator: '@Medine\Tests\Shared\Infrastructure\ConstantRandomNumberGenerator'
-  # Medine\Shared\Domain\Bus\Event\EventBus: '@Medine\Shared\Infrastructure\Bus\Event\InMemory\InMemorySymfonyEventBus'

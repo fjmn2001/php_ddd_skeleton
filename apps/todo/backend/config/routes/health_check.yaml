@@ -1,4 +1,4 @@
 health-check_get:
   path: /health-check
-  controller: MN\Apps\Todo\Backend\Controller\HealthCheck\HealthCheckGetController
+  controller: Medine\Apps\Todo\Backend\Controller\HealthCheck\HealthCheckGetController
   methods: [ GET ]
