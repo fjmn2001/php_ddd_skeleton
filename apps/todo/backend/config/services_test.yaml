@@ -5,3 +5,6 @@ services:
   _defaults:
     autoconfigure: true
     autowire: true
+
+  Medine\Tests\:
+    resource: '../../../../tests/src'
