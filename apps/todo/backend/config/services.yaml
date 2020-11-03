@@ -11,6 +11,13 @@ services:
     resource: '../src/Controller'
     tags: [ 'controller.service_arguments' ]
 
+  # Wire
+  Medine\Shared\:
+    resource: '../../../../src/Shared'
+
+  Medine\Todo\:
+    resource: '../../../../src/Todo'
+
   # -- TAGGING --
   Medine\Shared\Infrastructure\Symfony\AddJsonBodyToRequestListener:
     tags:
