@@ -3,7 +3,8 @@
 declare(strict_types=1);
 
 $bundles = [
-    Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true]
+    Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
+    FriendsOfBehat\SymfonyExtension\Bundle\FriendsOfBehatSymfonyExtensionBundle::class => ['test' => true]
 ];
 
 $suggestedBundles = [];

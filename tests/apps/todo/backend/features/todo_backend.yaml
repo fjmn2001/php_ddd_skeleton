@@ -1,0 +1,17 @@
+todo_backend:
+  extensions:
+    FriendsOfBehat\SymfonyExtension:
+      kernel:
+        class: Medine\Apps\Todo\Backend\TodoBackendKernel
+      bootstrap: apps/bootstrap.php
+  #    Behat\MinkExtension:
+  #      sessions:
+  #        symfony:
+  #          symfony: ~
+  #      base_url: ''
+
+  suites:
+    health_check:
+      paths: [ tests/apps/todo/backend/features/health_check ]
+      contexts:
+        - Medine\Tests\Shared\Infrastructure\Behat\ApiContext
