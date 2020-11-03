@@ -1,0 +1,13 @@
+{
+    "name": "francisco/php_ddd_skeleton",
+    "description": "PHP DDD skeleton",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Francisco Marcano",
+            "email": "fjmn2001@gmail.com"
+        }
+    ],
+    "require": {}
+}
