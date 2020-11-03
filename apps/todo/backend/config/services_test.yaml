@@ -8,3 +8,6 @@ services:
 
   Medine\Tests\:
     resource: '../../../../tests/src'
+
+  # Instance selector
+  Medine\Shared\Domain\RandomNumberGenerator: '@Medine\Tests\Shared\Infrastructure\PhpStaticNumberGenerator'
