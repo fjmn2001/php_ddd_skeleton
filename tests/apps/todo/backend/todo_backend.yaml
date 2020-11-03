@@ -4,11 +4,11 @@ todo_backend:
       kernel:
         class: Medine\Apps\Todo\Backend\TodoBackendKernel
       bootstrap: apps/bootstrap.php
-  #    Behat\MinkExtension:
-  #      sessions:
-  #        symfony:
-  #          symfony: ~
-  #      base_url: ''
+    Behat\MinkExtension:
+      sessions:
+        symfony:
+          symfony: ~
+      base_url: ''
 
   suites:
     health_check:
