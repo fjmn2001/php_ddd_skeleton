@@ -13,6 +13,11 @@ composer-env-file:
 .PHONY: composer-install
 composer-install: CMD=install
 
+.PHONY: test
+test: composer-env-file
+	docker exec medine-php_ddd_skeleton-todo_backend-php ./vendor/bin/phpunit --testsuite todo
+	docker exec medine-php_ddd_skeleton-todo_backend-php ./vendor/bin/phpunit --testsuite shared
+
 # 🐳 Docker Compose
 .PHONY: start
 start: CMD=up -d
@@ -22,3 +27,6 @@ start: CMD=up -d
 .PHONY: doco
 doco start stop destroy: composer-env-file
 	@docker-compose $(CMD)
+
+clean-cache:
+	@rm -rf apps/*/*/var
