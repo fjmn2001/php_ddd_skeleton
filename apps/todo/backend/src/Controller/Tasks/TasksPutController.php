@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Medine\Apps\Todo\Backend\Controller\Tasks;
 
 use Medine\Shared\Infrastructure\Symfony\ApiController;
-use Medine\Todo\Tasks\Application\CreateTaskCommand;
+use Medine\Todo\Tasks\Application\Create\CreateTaskCommand;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 

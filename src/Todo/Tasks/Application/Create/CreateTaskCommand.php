@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Medine\Todo\Tasks\Application;
+namespace Medine\Todo\Tasks\Application\Create;
 
 use Medine\Shared\Domain\Bus\Command\Command;
 
