@@ -11,3 +11,4 @@ services:
 
   # Instance selector
   Medine\Shared\Domain\RandomNumberGenerator: '@Medine\Tests\Shared\Infrastructure\PhpStaticNumberGenerator'
+  #Medine\Shared\Domain\Bus\Event\EventBus: '@Medine\Shared\Infrastructure\Bus\Event\InMemory\InMemorySymfonyEventBus'

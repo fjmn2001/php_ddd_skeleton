@@ -21,7 +21,7 @@ final class Task extends AggregateRoot
     {
         $task = new self($id, $name);
 
-        //$task->record(new CourseCreatedDomainEvent($id->value(), $name->value(), $duration->value()));
+        $task->record(new TaskCreatedDomainEvent($id->value(), $name->value()));
 
         return $task;
     }

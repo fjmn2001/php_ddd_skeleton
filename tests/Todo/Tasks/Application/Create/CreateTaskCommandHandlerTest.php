@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Medine\Tests\Todo\Tasks\Application\Create;
 
 use Medine\Tests\Todo\Tasks\CoursesModuleUnitTestCase;
+use Medine\Tests\Todo\Tasks\Domain\TaskCreatedDomainEventMother;
 use Medine\Tests\Todo\Tasks\Domain\TaskMother;
 use Medine\Todo\Tasks\Application\Create\CreateTaskCommandHandler;
 use Medine\Todo\Tasks\Application\Create\TaskCreator;
@@ -26,10 +27,10 @@ final class CreateTaskCommandHandlerTest extends CoursesModuleUnitTestCase
         $command = CreateCourseCommandMother::random();
 
         $task = TaskMother::fromRequest($command);
-        //$domainEvent = CourseCreatedDomainEventMother::fromCourse($task);
+        $domainEvent = TaskCreatedDomainEventMother::fromTask($task);
 
         $this->shouldSave($task);
-        //$this->shouldPublishDomainEvent($domainEvent);
+        $this->shouldPublishDomainEvent($domainEvent);
 
         $this->dispatch($command, $this->handler);
     }

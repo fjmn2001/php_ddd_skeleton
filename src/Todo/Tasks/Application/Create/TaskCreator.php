@@ -26,6 +26,6 @@ final class TaskCreator
         $task = Task::create($id, $name);
 
         $this->repository->save($task);
-        //$this->bus->publish(...$task->pullDomainEvents());
+        $this->bus->publish(...$task->pullDomainEvents());
     }
 }
