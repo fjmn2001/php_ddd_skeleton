@@ -8,6 +8,9 @@ services:
 
   # Configure
   _instanceof:
+    Medine\Shared\Domain\Bus\Event\DomainEventSubscriber:
+      tags: [ 'medine.domain_event_subscriber' ]
+
     Medine\Shared\Domain\Bus\Command\CommandHandler:
       tags: [ 'medine.command_handler' ]
 

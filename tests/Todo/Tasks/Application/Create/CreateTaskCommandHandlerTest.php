@@ -31,6 +31,6 @@ final class CreateTaskCommandHandlerTest extends CoursesModuleUnitTestCase
         $this->shouldSave($task);
         //$this->shouldPublishDomainEvent($domainEvent);
 
-        //$this->dispatch($command, $this->handler);
+        $this->dispatch($command, $this->handler);
     }
 }
