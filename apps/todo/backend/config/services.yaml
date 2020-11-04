@@ -6,6 +6,11 @@ services:
     autoconfigure: true
     autowire: true
 
+  # Configure
+  _instanceof:
+    Medine\Shared\Domain\Bus\Command\CommandHandler:
+      tags: [ 'medine.command_handler' ]
+
   # Controllers
   Medine\Apps\Todo\Backend\Controller\:
     resource: '../src/Controller'
