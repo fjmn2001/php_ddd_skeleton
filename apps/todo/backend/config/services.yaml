@@ -1,5 +1,5 @@
-#imports:
-#  - { resource: ../../../../src/Todo/Shared/Infrastructure/Symfony/DependencyInjection/todo_services.yaml }
+imports:
+  - { resource: ../../../../src/Todo/Shared/Infrastructure/Symfony/DependencyInjection/todo_services.yaml }
 
 services:
   _defaults:
@@ -24,6 +24,10 @@ services:
     resource: '../../../../src/Todo'
 
   # -- TAGGING --
+  Medine\Shared\Infrastructure\Bus\Event\InMemory\InMemorySymfonyEventBus:
+    arguments: [ !tagged medine.domain_event_subscriber ]
+    lazy: true
+
   Medine\Shared\Infrastructure\Symfony\AddJsonBodyToRequestListener:
     tags:
       - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }

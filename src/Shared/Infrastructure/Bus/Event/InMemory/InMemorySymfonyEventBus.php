@@ -11,7 +11,7 @@ use Symfony\Component\Messenger\Handler\HandlersLocator;
 use Symfony\Component\Messenger\MessageBus;
 use Symfony\Component\Messenger\Middleware\HandleMessageMiddleware;
 
-final class InMemorySymfonyEventBus implements \Medine\Shared\Domain\Bus\Event\EventBus
+class InMemorySymfonyEventBus implements \Medine\Shared\Domain\Bus\Event\EventBus
 {
     private $bus;
 
