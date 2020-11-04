@@ -22,3 +22,11 @@ services:
   Medine\Shared\Infrastructure\Symfony\AddJsonBodyToRequestListener:
     tags:
       - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+  # -- APP DEFINITIONS --
+  # Command/Query Handlers
+  Medine\Shared\Infrastructure\Bus\Command\InMemorySymfonyCommandBus:
+    arguments: [ !tagged medine.command_handler ]
+
+  Medine\Shared\Infrastructure\Bus\Query\InMemorySymfonyQueryBus:
+    arguments: [ !tagged medine.query_handler ]
