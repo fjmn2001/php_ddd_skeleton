@@ -42,3 +42,6 @@ services:
 
   Medine\Shared\Infrastructure\Bus\Query\InMemorySymfonyQueryBus:
     arguments: [ !tagged medine.query_handler ]
+
+  # -- IMPLEMENTATIONS SELECTOR --
+  Medine\Shared\Domain\Bus\Event\EventBus: '@Medine\Shared\Infrastructure\Bus\Event\MySql\MySqlDoctrineEventBus'
