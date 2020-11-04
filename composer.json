@@ -14,7 +14,9 @@
         "ext-json": "*",
         "symfony/framework-bundle": "^4.4",
         "symfony/dotenv": "^4.4",
-        "symfony/yaml": "^4.4"
+        "symfony/yaml": "^4.4",
+        "lambdish/phunctional": "^2.1",
+        "symfony/messenger": "^5.1"
     },
     "require-dev": {
         "ext-json": "*",
