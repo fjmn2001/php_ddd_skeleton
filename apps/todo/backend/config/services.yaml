@@ -31,6 +31,12 @@ services:
     arguments: [ !tagged medine.domain_event_subscriber ]
     lazy: true
 
+  Medine\Shared\Infrastructure\Bus\Event\DomainEventMapping:
+    arguments: [ !tagged medine.domain_event_subscriber ]
+
+  Medine\Shared\Infrastructure\Doctrine\DatabaseConnections:
+    arguments: [ !tagged medine.database_connection ]
+
   Medine\Shared\Infrastructure\Symfony\AddJsonBodyToRequestListener:
     tags:
       - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
