@@ -68,7 +68,7 @@ final class DbalTypesSearcher
 
                     $classWithoutPrefix = str_replace(['.php', '/'], ['', '\\'], $splittedPath[1]);
 
-                    return "CodelyTv\\$contextName\\$classWithoutPrefix";
+                    return "Medine\\$contextName\\$classWithoutPrefix";
                 },
                 $files
             );
