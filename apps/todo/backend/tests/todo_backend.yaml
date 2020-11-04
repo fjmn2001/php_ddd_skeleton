@@ -12,6 +12,11 @@ todo_backend:
 
   suites:
     health_check:
-      paths: [ tests/apps/todo/backend/features/health_check ]
+      paths: [ apps/todo/backend/tests/features/health_check ]
+      contexts:
+        - Medine\Tests\Shared\Infrastructure\Behat\ApiContext
+
+    tasks:
+      paths: [ apps/todo/backend/tests/features/tasks ]
       contexts:
         - Medine\Tests\Shared\Infrastructure\Behat\ApiContext

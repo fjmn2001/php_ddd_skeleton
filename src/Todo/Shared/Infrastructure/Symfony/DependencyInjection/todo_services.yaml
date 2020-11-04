@@ -16,4 +16,4 @@ services:
 
 
   # Courses
-  Medine\Todo\Courses\Domain\CourseRepository: '@Medine\Todo\Courses\Infrastructure\Persistence\DoctrineCourseRepository'
+#  Medine\Todo\Courses\Domain\CourseRepository: '@Medine\Todo\Courses\Infrastructure\Persistence\DoctrineCourseRepository'

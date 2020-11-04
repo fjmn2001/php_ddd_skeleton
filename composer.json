@@ -14,7 +14,12 @@
         "ext-json": "*",
         "symfony/framework-bundle": "^4.4",
         "symfony/dotenv": "^4.4",
-        "symfony/yaml": "^4.4"
+        "symfony/yaml": "^4.4",
+        "lambdish/phunctional": "^2.1",
+        "symfony/messenger": "^5.1",
+        "ramsey/uuid": "^4.1",
+        "doctrine/dbal": "^2.12",
+        "doctrine/orm": "^2.7"
     },
     "require-dev": {
         "ext-json": "*",
@@ -38,7 +43,7 @@
     "autoload-dev": {
         "psr-4": {
             "Medine\\Tests\\": [
-                "tests/src"
+                "tests"
             ]
         }
     }
