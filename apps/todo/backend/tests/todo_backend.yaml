@@ -19,4 +19,5 @@ todo_backend:
     tasks:
       paths: [ apps/todo/backend/tests/features/tasks ]
       contexts:
+        - Medine\Tests\Shared\Infrastructure\Behat\ApplicationFeatureContext
         - Medine\Tests\Shared\Infrastructure\Behat\ApiContext
