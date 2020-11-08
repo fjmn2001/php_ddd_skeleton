@@ -8,6 +8,7 @@ use Medine\Shared\Domain\Criteria\Criteria;
 use Medine\Shared\Domain\Criteria\Filters;
 use Medine\Shared\Domain\Criteria\Order;
 use Medine\Todo\Tasks\Application\TaskResponse;
+use Medine\Todo\Tasks\Application\TasksResponse;
 use Medine\Todo\Tasks\Domain\Task;
 use Medine\Todo\Tasks\Domain\TaskRepository;
 use function Lambdish\Phunctional\map;
@@ -21,11 +22,11 @@ final class TasksByCriteriaSearcher
         $this->repository = $repository;
     }
 
-    public function search(Filters $filters, Order $order, ?int $limit, ?int $offset): TaskResponse
+    public function search(Filters $filters, Order $order, ?int $limit, ?int $offset): TasksResponse
     {
         $criteria = new Criteria($filters, $order, $offset, $limit);
 
-        return new TaskResponse(...map($this->toResponse(), $this->repository->matching($criteria)));
+        return new TasksResponse(...map($this->toResponse(), $this->repository->matching($criteria)));
     }
 
     private function toResponse(): callable

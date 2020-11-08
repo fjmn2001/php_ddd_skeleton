@@ -7,7 +7,7 @@ namespace Medine\Todo\Tasks\Application\SearchByCriteria;
 use Medine\Shared\Domain\Bus\Query\QueryHandler;
 use Medine\Shared\Domain\Criteria\Filters;
 use Medine\Shared\Domain\Criteria\Order;
-use Medine\Todo\Tasks\Application\TaskResponse;
+use Medine\Todo\Tasks\Application\TasksResponse;
 
 final class SearchTasksByCriteriaQueryHandler implements QueryHandler
 {
@@ -18,7 +18,7 @@ final class SearchTasksByCriteriaQueryHandler implements QueryHandler
         $this->searcher = $searcher;
     }
 
-    public function __invoke(SearchTasksByCriteriaQuery $query): TaskResponse
+    public function __invoke(SearchTasksByCriteriaQuery $query): TasksResponse
     {
         $filters = Filters::fromValues($query->filters());
         $order = Order::fromValues($query->orderBy(), $query->order());

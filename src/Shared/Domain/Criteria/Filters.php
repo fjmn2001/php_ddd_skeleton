@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Medine\Shared\Domain\Criteria;
 
 use Medine\Shared\Domain\Collection;
+use function Lambdish\Phunctional\reduce;
 
 final class Filters extends Collection
 {
@@ -33,7 +34,9 @@ final class Filters extends Collection
     public function serialize(): string
     {
         return reduce(
-            static fn(string $accumulate, Filter $filter) => sprintf('%s^%s', $accumulate, $filter->serialize()),
+            static function (string $accumulate, Filter $filter) {
+                return sprintf('%s^%s', $accumulate, $filter->serialize());
+            },
             $this->items(),
             ''
         );

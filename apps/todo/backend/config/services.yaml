@@ -14,6 +14,9 @@ services:
     Medine\Shared\Domain\Bus\Command\CommandHandler:
       tags: [ 'medine.command_handler' ]
 
+    Medine\Shared\Domain\Bus\Query\QueryHandler:
+      tags: [ 'medine.query_handler' ]
+
   # Controllers
   Medine\Apps\Todo\Backend\Controller\:
     resource: '../src/Controller'
