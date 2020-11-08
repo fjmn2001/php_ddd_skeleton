@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Medine\Todo\Tasks\Application\SearchByCriteria;
 
 use Medine\Shared\Domain\Bus\Query\QueryHandler;
+use Medine\Shared\Domain\Criteria\Filters;
+use Medine\Shared\Domain\Criteria\Order;
 use Medine\Todo\Tasks\Application\TaskResponse;
 
 final class SearchTasksByCriteriaQueryHandler implements QueryHandler

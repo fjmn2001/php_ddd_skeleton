@@ -7,6 +7,7 @@ namespace Medine\Apps\Todo\Backend\Controller\Tasks;
 use Medine\Shared\Infrastructure\Symfony\ApiController;
 use Medine\Todo\Tasks\Application\SearchByCriteria\SearchTasksByCriteriaQuery;
 use Medine\Todo\Tasks\Application\TaskResponse;
+use Medine\Todo\Tasks\Application\TasksResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use function Lambdish\Phunctional\map;
@@ -15,7 +16,7 @@ final class TasksGetController extends ApiController
 {
     public function __invoke(Request $request): JsonResponse
     {
-        /** @var TaskResponse $response */
+        /** @var TasksResponse $response */
         $response = $this->ask(
             new SearchTasksByCriteriaQuery(
                 $request->query->get('filters', []),
