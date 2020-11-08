@@ -43,3 +43,25 @@ Feature: Obtain the total of tasks
     }
     ]
     """
+    When I send a GET request to "/tasks" with body:
+    """
+    {
+    "filters": [
+        {
+            "field": "name",
+            "operator": "CONTAINS",
+            "value": "the bedroom c"
+        }
+    ]
+    }
+    """
+    Then the response status code should be 200
+    And the response content should be:
+    """
+    [
+    {
+        "id": "1aab45ba-3c7a-4344-8936-78466eca77fc",
+        "name": "Clean the bedroom c"
+    }
+    ]
+    """

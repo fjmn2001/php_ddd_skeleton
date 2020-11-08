@@ -19,11 +19,11 @@ final class TasksGetController extends ApiController
         /** @var TasksResponse $response */
         $response = $this->ask(
             new SearchTasksByCriteriaQuery(
-                $request->query->get('filters', []),
-                $request->query->get('order_by'),
-                $request->query->get('order'),
-                $request->query->get('limit'),
-                $request->query->get('offset')
+                $request->get('filters', []),
+                $request->get('order_by'),
+                $request->get('order'),
+                $request->get('limit'),
+                $request->get('offset')
             )
         );
 
