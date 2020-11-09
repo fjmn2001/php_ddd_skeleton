@@ -48,7 +48,7 @@ Feature: Obtain the total of tasks
     {
     "filters": [
         {
-            "field": "name",
+            "field": "name.value",
             "operator": "CONTAINS",
             "value": "the bedroom c"
         }
