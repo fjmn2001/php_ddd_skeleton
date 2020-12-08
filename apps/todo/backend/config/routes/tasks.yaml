@@ -1,3 +1,8 @@
+tasks_post:
+  path: /tasks
+  controller: Medine\Apps\Todo\Backend\Controller\Tasks\TasksPostController
+  methods: [ POST ]
+
 tasks_put:
   path: /tasks/{id}
   controller: Medine\Apps\Todo\Backend\Controller\Tasks\TasksPutController

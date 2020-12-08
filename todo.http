@@ -1,0 +1,13 @@
+POST http://localhost:8091/tasks
+Content-Type: application/json
+
+{
+    "id": "{{$uuid}}",
+    "name": "Task from .http file"
+}
+
+###
+GET http://localhost:8091/tasks
+Accept: application/json
+
+###
