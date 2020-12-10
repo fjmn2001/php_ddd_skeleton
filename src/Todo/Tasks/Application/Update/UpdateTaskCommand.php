@@ -6,7 +6,7 @@ namespace Medine\Todo\Tasks\Application\Update;
 
 use Medine\Shared\Domain\Bus\Command\Command;
 
-final class UpdateTaskCommand2 //implements Command
+final class UpdateTaskCommand implements Command
 {
     private $id;
     private $name;
