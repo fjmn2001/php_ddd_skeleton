@@ -7,6 +7,15 @@ Content-Type: application/json
 }
 
 ###
+PUT http://localhost:8091/tasks/1aab45ba-3c7a-4344-8936-78466eca77aa
+Content-Type: application/json
+
+{
+    "id": "{{$uuid}}",
+    "name": "updated!!!"
+}
+
+###
 GET http://localhost:8091/tasks
 Accept: application/json
 
