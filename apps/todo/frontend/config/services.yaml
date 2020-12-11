@@ -54,3 +54,9 @@ services:
 
   # -- IMPLEMENTATIONS SELECTOR --
   Medine\Shared\Domain\Bus\Event\EventBus: '@Medine\Shared\Infrastructure\Bus\Event\MySql\MySqlDoctrineEventBus'
+
+twig:
+  default_path: '%kernel.project_dir%/templates'
+  strict_variables: true
+  globals:
+    flash: '@Medine\Shared\Infrastructure\Symfony\FlashSession'

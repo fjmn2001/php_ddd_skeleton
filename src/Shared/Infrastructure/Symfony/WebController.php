@@ -8,8 +8,8 @@ use Medine\Shared\Domain\Bus\Command\CommandBus;
 use Medine\Shared\Domain\Bus\Query\QueryBus;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 use Twig\Environment;
@@ -23,7 +23,7 @@ abstract class WebController extends ApiController
     public function __construct(
         Environment $twig,
         RouterInterface $router,
-        Session $session,
+        SessionInterface $session,
         QueryBus $queryBus,
         CommandBus $commandBus,
         ApiExceptionsHttpStatusCodeMapping $exceptionHandler
