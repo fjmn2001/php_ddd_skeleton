@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Medine\Todo\Tasks\Application\Find;
 
 use Medine\Todo\Tasks\Application\TaskResponse;
-use Medine\Todo\Tasks\Domain\Task;
 use Medine\Todo\Tasks\Domain\TaskId;
 use Medine\Todo\Tasks\Domain\TaskNotExists;
 use Medine\Todo\Tasks\Domain\TaskRepository;
