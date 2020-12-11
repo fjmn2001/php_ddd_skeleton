@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Medine\Todo\Tasks\Application;
+namespace Medine\Todo\Tasks\Application\Update;
 
-use Medine\Shared\Domain\Bus\Query\Response;
+use Medine\Shared\Domain\Bus\Command\Command;
 
-final class TaskResponse implements Response
+final class UpdateTaskCommand implements Command
 {
     private $id;
     private $name;

@@ -5,22 +5,22 @@ declare(strict_types=1);
 namespace Medine\Apps\Todo\Backend\Controller\Tasks;
 
 use Medine\Shared\Infrastructure\Symfony\ApiController;
-use Medine\Todo\Tasks\Application\Update\UpdateTaskCommand;
+use Medine\Todo\Tasks\Application\Create\CreateTaskCommand;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-final class TasksPutController extends ApiController
+final class TasksPostController extends ApiController
 {
-    public function __invoke(string $id, Request $request): Response
+    public function __invoke(Request $request): Response
     {
         $this->dispatch(
-            new UpdateTaskCommand(
-                $id,
-                $request->request->get('name')
+            new CreateTaskCommand(
+                $request->get('id'),
+                $request->get('name')
             )
         );
 
-        return new Response('');
+        return new Response('', Response::HTTP_CREATED);
     }
 
     protected function exceptions(): array

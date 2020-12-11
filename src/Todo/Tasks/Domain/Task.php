@@ -40,4 +40,9 @@ final class Task extends AggregateRoot
     {
         $this->name = $newName;
     }
+
+    public function updateName(TaskName $newName)
+    {
+        $this->name = $newName;
+    }
 }

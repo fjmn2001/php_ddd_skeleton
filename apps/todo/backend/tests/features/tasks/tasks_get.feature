@@ -4,10 +4,11 @@ Feature: Obtain the total of tasks
   I want to see the tasks list
 
   Scenario: With one task
-    Given I send a PUT request to "/tasks/1aab45ba-3c7a-4344-8936-78466eca77fb" with body:
+    Given I send a POST request to "/tasks" with body:
     """
     {
-      "name": "Clean the bedroom b"
+    "id": "1aab45ba-3c7a-4344-8936-78466eca77fb",
+    "name": "Clean the bedroom b"
     }
     """
     When I send a GET request to "/tasks"
@@ -22,10 +23,11 @@ Feature: Obtain the total of tasks
     ]
     """
 
-    Given I send a PUT request to "/tasks/1aab45ba-3c7a-4344-8936-78466eca77fc" with body:
+    Given I send a POST request to "/tasks" with body:
     """
     {
-      "name": "Clean the bedroom c"
+    "id": "1aab45ba-3c7a-4344-8936-78466eca77fc",
+    "name": "Clean the bedroom c"
     }
     """
     When I send a GET request to "/tasks"
