@@ -2,4 +2,5 @@
 /vendor/
 apps/*/*/var
 apps/*/*/node_modules
+apps/*/*/public/build/*
 .phpunit.result.cache
