@@ -1,0 +1,4 @@
+home_get:
+  path: /
+  controller: Medine\Apps\Todo\Frontend\Controller\Home\HomeGetWebController
+  methods: [ GET ]
