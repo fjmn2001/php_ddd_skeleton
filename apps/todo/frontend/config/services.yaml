@@ -1,0 +1,65 @@
+imports:
+  - { resource: ../../../../src/Todo/Shared/Infrastructure/Symfony/DependencyInjection/todo_services.yaml }
+
+services:
+  _defaults:
+    autoconfigure: true
+    autowire: true
+
+  # Configure
+  _instanceof:
+    Medine\Shared\Domain\Bus\Event\DomainEventSubscriber:
+      tags: [ 'medine.domain_event_subscriber' ]
+
+    Medine\Shared\Domain\Bus\Command\CommandHandler:
+      tags: [ 'medine.command_handler' ]
+
+    Medine\Shared\Domain\Bus\Query\QueryHandler:
+      tags: [ 'medine.query_handler' ]
+
+  # Controllers
+  Medine\Apps\Todo\Frontend\Controller\:
+    resource: '../src/Controller'
+    tags: [ 'controller.service_arguments' ]
+
+  # Wire
+  Medine\Shared\:
+    resource: '../../../../src/Shared'
+
+  Medine\Todo\:
+    resource: '../../../../src/Todo'
+
+  # -- TAGGING --
+  Medine\Shared\Infrastructure\Bus\Event\InMemory\InMemorySymfonyEventBus:
+    arguments: [ !tagged medine.domain_event_subscriber ]
+    lazy: true
+
+  Medine\Shared\Infrastructure\Bus\Event\DomainEventMapping:
+    arguments: [ !tagged medine.domain_event_subscriber ]
+
+  Medine\Shared\Infrastructure\Doctrine\DatabaseConnections:
+    arguments: [ !tagged medine.database_connection ]
+
+  Medine\Shared\Infrastructure\Symfony\AddJsonBodyToRequestListener:
+    tags:
+      - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+  # -- APP DEFINITIONS --
+  # Command/Query Handlers
+  Medine\Shared\Infrastructure\Bus\Command\InMemorySymfonyCommandBus:
+    arguments: [ !tagged medine.command_handler ]
+
+  Medine\Shared\Infrastructure\Bus\Query\InMemorySymfonyQueryBus:
+    arguments: [ !tagged medine.query_handler ]
+
+  # -- IMPLEMENTATIONS SELECTOR --
+  Medine\Shared\Domain\Bus\Event\EventBus: '@Medine\Shared\Infrastructure\Bus\Event\MySql\MySqlDoctrineEventBus'
+
+twig:
+  default_path: '%kernel.project_dir%/templates'
+  strict_variables: true
+  globals:
+    flash: '@Medine\Shared\Infrastructure\Symfony\FlashSession'
+
+webpack_encore:
+  output_path: '%kernel.project_dir%/public/js'
