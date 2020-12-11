@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Medine\Todo\Tasks\Application\Find;
 
-use Medine\Todo\Tasks\Domain\Task;
+use Medine\Todo\Tasks\Application\TaskResponse;
 use Medine\Todo\Tasks\Domain\TaskId;
 use Medine\Todo\Tasks\Domain\TaskNotExists;
 use Medine\Todo\Tasks\Domain\TaskRepository;
@@ -18,7 +18,7 @@ final class TaskFinder
         $this->repository = $repository;
     }
 
-    public function __invoke(TaskId $id): Task
+    public function __invoke(TaskId $id): TaskResponse
     {
         $task = $this->repository->search($id);
 
@@ -26,6 +26,9 @@ final class TaskFinder
             throw new TaskNotExists($id);
         }
 
-        return $task;
+        return new TaskResponse(
+            $task->id()->value(),
+            $task->name()->value()
+        );
     }
 }

@@ -6,6 +6,7 @@ namespace Medine\Todo\Tasks\Application\Update;
 
 use Medine\Shared\Domain\Bus\Event\EventBus;
 use Medine\Todo\Tasks\Application\Find\TaskFinder;
+use Medine\Todo\Tasks\Domain\Task;
 use Medine\Todo\Tasks\Domain\TaskId;
 use Medine\Todo\Tasks\Domain\TaskName;
 use Medine\Todo\Tasks\Domain\TaskRepository;
@@ -25,7 +26,11 @@ final class TaskUpdater
 
     public function __invoke(TaskId $id, TaskName $newName): void
     {
-        $task = $this->finder->__invoke($id);
+        $response = $this->finder->__invoke($id);
+        $task = new Task(
+            new TaskId($response->id()),
+            new TaskName($response->name())
+        );
 
         $task->updateName($newName);
 

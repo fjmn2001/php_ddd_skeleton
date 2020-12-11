@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Medine\Todo\Tasks\Application;
 
-final class TaskResponse
+use Medine\Shared\Domain\Bus\Query\Response;
+
+final class TaskResponse implements Response
 {
     private $id;
     private $name;

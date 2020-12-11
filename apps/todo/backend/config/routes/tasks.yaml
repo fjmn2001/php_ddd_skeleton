@@ -3,6 +3,11 @@ tasks_post:
   controller: Medine\Apps\Todo\Backend\Controller\Tasks\TasksPostController
   methods: [ POST ]
 
+task_get:
+  path: /tasks/{id}
+  controller: Medine\Apps\Todo\Backend\Controller\Tasks\TaskGetController
+  methods: [ GET ]
+
 tasks_put:
   path: /tasks/{id}
   controller: Medine\Apps\Todo\Backend\Controller\Tasks\TasksPutController
