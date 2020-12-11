@@ -1,4 +1,5 @@
 .idea
 /vendor/
-apps/todo/*/var
+apps/*/*/var
+apps/*/*/node_modules
 .phpunit.result.cache

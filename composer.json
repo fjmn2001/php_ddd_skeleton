@@ -21,7 +21,8 @@
         "lambdish/phunctional": "^2.1",
         "ramsey/uuid": "^4.1",
         "doctrine/dbal": "^2.12",
-        "doctrine/orm": "^2.7"
+        "doctrine/orm": "^2.7",
+        "symfony/webpack-encore-bundle": "^1.8"
     },
     "require-dev": {
         "ext-json": "*",

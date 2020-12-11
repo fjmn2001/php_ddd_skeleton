@@ -30,5 +30,14 @@
 <div class="clearfix"></div>
 {{ include('partials/footer.html.twig') }}
 
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+    <script src="/js/app.js"></script>
+
+    <!-- Renders app.js & a webpack runtime.js file
+        <script src="/build/runtime.js"></script>
+        <script src="/build/app.js"></script> -->
+{% endblock %}
+
 </body>
 </html>

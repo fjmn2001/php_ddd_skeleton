@@ -60,3 +60,6 @@ twig:
   strict_variables: true
   globals:
     flash: '@Medine\Shared\Infrastructure\Symfony\FlashSession'
+
+webpack_encore:
+  output_path: '%kernel.project_dir%/public/js'
