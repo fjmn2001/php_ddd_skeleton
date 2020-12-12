@@ -1,29 +1,27 @@
 <template>
-  <div class="home">
-    <table>
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Nombre</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <th>Id</th>
-            <th>Nombre</th>
-        </tr>
-        </tbody>
-    </table>
-  </div>
+    <div class="home">
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import {Component, Vue} from 'vue-property-decorator';
 
-@Component({
-
-})
+@Component
 export default class TodoList extends Vue {
-
+    todo: Array<string> = [];
 }
 </script>
