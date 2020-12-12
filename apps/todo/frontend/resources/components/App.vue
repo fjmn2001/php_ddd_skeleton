@@ -58,6 +58,6 @@ import Vue from 'vue';
 export default {};
 </script>
 
-<style lang="scss">
-@import "~bootstrap/scss/bootstrap";
-</style>
+<!--<style lang="scss">-->
+<!--@import "~bootstrap/scss/bootstrap";-->
+<!--</style>-->
