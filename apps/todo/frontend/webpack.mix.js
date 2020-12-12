@@ -53,5 +53,7 @@ let mix = require('laravel-mix');
 //     'resources/assets/vendor/bootbox/js/bootbox.min.js'
 // ], 'public/js/vendor.js');
 
+
+
 mix.js('resources/js/app.js', 'public/build');
 //.sass('resources/sass/app.scss', 'public/css');
