@@ -13,6 +13,7 @@ final class TasksPostController extends ApiController
 {
     public function __invoke(Request $request): Response
     {
+
         $this->dispatch(
             new CreateTaskCommand(
                 $request->get('id'),
@@ -20,7 +21,11 @@ final class TasksPostController extends ApiController
             )
         );
 
-        return new Response('', Response::HTTP_CREATED);
+        return new Response(
+            '',
+            Response::HTTP_CREATED,
+            ['Access-Control-Allow-Origin' => '*']
+        );
     }
 
     protected function exceptions(): array
