@@ -36,6 +36,12 @@ export default class TodoList extends Vue {
     todoName = '';
     todoList: Array<object> = [];
 
+    mounted() {
+        axios.get('http://localhost:8091/tasks').then((response) => {
+            this.todoList = response.data;
+        });
+    }
+
     addTodo() {
         const todo = {
             id: uuidv4(),
