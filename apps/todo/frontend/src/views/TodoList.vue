@@ -2,10 +2,6 @@
     <div class="home">
         <form class="form" @submit.prevent="addTodo">
             <div>
-                <label>Id</label>
-                <input type="text" name="id" required="" v-model="todoId">
-            </div>
-            <div>
                 <label>Name</label>
                 <input type="text" name="name" required="" v-model="todoName">
             </div>
@@ -32,34 +28,23 @@
 
 <script lang="ts">
 import axios from 'axios';
+import {v4 as uuidv4} from 'uuid';
 import {Component, Vue} from 'vue-property-decorator';
 
 @Component
 export default class TodoList extends Vue {
-    todoId = '';
     todoName = '';
     todoList: Array<object> = [];
 
     addTodo() {
         const todo = {
-            id: this.todoId,
+            id: uuidv4(),
             name: this.todoName
         };
         this.todoList.push(todo);
-        this.todoId = '';
         this.todoName = '';
 
-        axios.defaults.headers.common["Host"] = "http://localhost:8080";
-        axios({
-            headers: {
-                // Overwrite Axios's automatically set Content-Type
-                'Content-Type': 'application/json'
-            },
-            method: 'post',
-            url: 'http://localhost:8091/tasks',
-            data: todo
-        });
-        //axios.post('http://localhost:8091/tasks', todo).catch((error) => console.log(error));
+        axios.post('http://localhost:8091/tasks', todo).catch((error) => console.log(error));
     }
 
     removeTodo(index: number) {

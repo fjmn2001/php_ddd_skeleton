@@ -23,8 +23,7 @@ final class TasksPostController extends ApiController
 
         return new Response(
             '',
-            Response::HTTP_CREATED,
-            ['Access-Control-Allow-Origin' => '*']
+            Response::HTTP_CREATED
         );
     }
 

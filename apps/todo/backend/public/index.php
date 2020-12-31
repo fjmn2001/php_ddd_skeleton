@@ -24,10 +24,15 @@ if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? $_ENV['TRUSTED_HOSTS'] ?? false
 
 $kernel = new TodoBackendKernel($_SERVER['APP_ENV'], (bool)$_SERVER['APP_DEBUG']);
 $request = Request::createFromGlobals();
+
 $response = $kernel->handle($request);
-//header('Access-Control-Allow-Origin: *');
-//header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-//header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
-//dd('hi there!');
+$response->headers->set('Access-Control-Allow-Origin', '*');
+$response->headers->set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+$response->headers->set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+//on response => method send headers change
+//header($name . ': ' . $value, $replace);
+//and comment this line
+//header(sprintf('HTTP/%s %s %s', $this->version, $this->statusCode, $this->statusText), true, $this->statusCode);
 $response->send();
+
 $kernel->terminate($request, $response);
