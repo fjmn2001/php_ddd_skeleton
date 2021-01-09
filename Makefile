@@ -1,32 +1,6 @@
-current-dir := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
+start-todo-backend:
+	php -S localhost:8091 apps/todo/backend/public/index.php
 
-.PHONY: build
-build: deps start
-
-.PHONY: deps
-deps: composer-install
-
-# 🐘 Composer
-composer-env-file:
-	@if [ ! -f .env.local ]; then echo '' > .env.local; fi
-
-.PHONY: composer-install
-composer-install: CMD=install
-
-.PHONY: test
-test: composer-env-file
-	docker exec medine-php_ddd_skeleton-todo_backend-php ./vendor/bin/phpunit --testsuite todo
-	docker exec medine-php_ddd_skeleton-todo_backend-php ./vendor/bin/phpunit --testsuite shared
-
-# 🐳 Docker Compose
-.PHONY: start
-start: CMD=up -d
-
-# Usage: `make doco CMD="ps --services"`
-# Usage: `make doco CMD="build --parallel --pull --force-rm --no-cache"`
-.PHONY: doco
-doco start stop destroy: composer-env-file
-	@docker-compose $(CMD)
-
-clean-cache:
-	@rm -rf apps/*/*/var
+start-todo-frontend:
+	cd apps/todo/frontend/ && ~/.nvm/versions/node/v10.22.0/bin/node\
+ 	~/.nvm/versions/node/v10.22.0/lib/node_modules/npm/bin/npm-cli.js run serve --scripts-prepend-node-path=auto
